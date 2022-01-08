@@ -1,6 +1,6 @@
 package com.converter;
 
-import org.jdom.JDOMException;
+import org.jdom2.JDOMException;
 
 import java.io.*;
 
@@ -13,7 +13,7 @@ public class start {
 
     public static void main(String[] args) throws IOException, JDOMException {
 
-        //String path = "C:\\Users\\31062\\Desktop\\silverTown6T_hard";
+        //String path = "C:\\Users\\31062\\Desktop\\freeze\\_key_6k_maximum.mc";
         String path = args[0];
 
         String[] split = path.split("\\\\");
@@ -29,6 +29,9 @@ public class start {
             case "txt":
                 identityTxt(path);
                 break;
+            case "mc":
+                com.converter.malody.ReadChart.readChart(path);
+                break;
             default:
                 com.converter.musynx.ReadChart.readChart(path);
                 break;
@@ -43,7 +46,6 @@ public class start {
         while (true) {
 
             identity = bufferedReader.readLine();
-            //System.out.println(identity);
             if (identity == null) {
                 System.out.println("Unsupported");
                 break;

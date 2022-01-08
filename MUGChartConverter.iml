@@ -7,6 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="jdom:jdom:1.1" level="project" />
+    <orderEntry type="library" exported="" name="jdom-2.0.6.1" level="project" />
+    <orderEntry type="library" name="json-20211205" level="project" />
   </component>
 </module>
