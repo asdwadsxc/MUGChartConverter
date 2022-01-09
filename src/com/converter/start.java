@@ -13,7 +13,7 @@ public class start {
 
     public static void main(String[] args) throws IOException, JDOMException {
 
-        //String path = "C:\\Users\\31062\\Desktop\\freeze\\_key_6k_maximum.mc";
+        //String path = "C:\\Users\\31062\\Desktop\\test\\mi_1_more_time.txt";
         String path = args[0];
 
         String[] split = path.split("\\\\");

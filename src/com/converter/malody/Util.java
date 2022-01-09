@@ -1,5 +1,7 @@
 package com.converter.malody;
 
+import com.converter.formatted.FormattedChart;
+
 import java.util.List;
 
 /**
@@ -23,4 +25,28 @@ public class Util {
         return findGCD(b % a, a);
     }
 
+    public static int[] groupToBeat(String[] strings) {
+
+        int beat0 = Integer.parseInt(strings[0]);
+        int beat1 = Integer.parseInt(strings[1]);
+        int beat2 = Integer.parseInt(strings[2]);
+
+        int result0 = beat0 * 4 + (beat1 * 4) / beat2;
+        int result1 = (beat1 * 4) % beat2;
+
+        int[] ints = simplifyBeat(result1, beat2);
+
+        return new int[]{result0, ints[0], ints[1]};
+    }
+
+    public static String findSound(String index) {
+
+        for (int i = 0; i < FormattedChart.wavList.size(); i++) {
+            String[] strings = FormattedChart.wavList.get(i);
+            if (strings[0].equals(index)) {
+                return strings[1];
+            }
+        }
+        return null;
+    }
 }

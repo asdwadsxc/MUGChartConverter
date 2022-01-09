@@ -14,6 +14,9 @@ public class FormattedChart {
     private static String artist;
     private static String bpm;
     private static int rank;
+    private static String creator; //Malody
+    private static String version; //Malody
+    private static int column; //Malody
 
     public static int getPlayer() {
         return player;
@@ -55,6 +58,30 @@ public class FormattedChart {
         FormattedChart.rank = rank;
     }
 
+    public static String getCreator() {
+        return creator;
+    }
+
+    public static void setCreator(String creator) {
+        FormattedChart.creator = creator;
+    }
+
+    public static String getVersion() {
+        return version;
+    }
+
+    public static void setVersion(String version) {
+        FormattedChart.version = version;
+    }
+
+    public static int getColumn() {
+        return column;
+    }
+
+    public static void setColumn(int column) {
+        FormattedChart.column = column;
+    }
+
     public static List<String[]> bpmList = new ArrayList<>();//时间，BPM，节拍[x,x,x]，节拍计算结果
     public static List<String[]> wavList = new ArrayList<>();//编号，文件名
     public static List<String[]> bgmList = new ArrayList<>();//节拍[x,x,x]，编号，时间
@@ -62,5 +89,4 @@ public class FormattedChart {
     public static List<String[]> lnP1List = new ArrayList<>();//节拍[x,x,x]，列，编号
     public static List<String[]> noteP2List = new ArrayList<>();//节拍[x,x,x]，列，编号
     public static List<String[]> lnP2List = new ArrayList<>();//节拍[x,x,x]，列，编号
-
 }

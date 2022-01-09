@@ -30,6 +30,7 @@ public class Analyze {
         FormattedChart.setPlayer(1);
         FormattedChart.setRank(3);
         FormattedChart.setBpm(String.valueOf(ChartList.getBpm()));
+        FormattedChart.setCreator("O2Jam");
 
     }
 

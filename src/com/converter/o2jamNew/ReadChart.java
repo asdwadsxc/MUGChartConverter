@@ -1,6 +1,7 @@
 package com.converter.o2jamNew;
 
-import com.converter.bmx.WriteChart;
+import com.converter.formatted.FormattedChart;
+import com.converter.malody.WriteChart;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -26,7 +27,8 @@ public class ReadChart {
         Scanner scanner = new Scanner(System.in);
         ChartList.setBpm(scanner.nextDouble());
 
-        String dir = path.substring(0, path.lastIndexOf("\\")) + "\\output";
+        //String dir = path.substring(0, path.lastIndexOf("\\")) + "\\output";
+        String dir = path.substring(0, path.lastIndexOf(".txt"));
         File dir1 = new File(dir);
 
         String wavName = path.substring(path.lastIndexOf("\\") + 1, path.lastIndexOf(".")) + ".mp3";
@@ -39,11 +41,11 @@ public class ReadChart {
             String nDifficuty = o2Mode.getAttributeValue("nDifficuty");
             String nKeyCount = o2Mode.getAttributeValue("nKeyCount");
 
-            String[] difficultyName = {"easy", "normal", "hard", "other_1", "other_2", "other_3", "other_4"};
+            String[] difficultyName = {"Easy", "Normal", "Hard", "Other_1", "Other_2", "Other_3", "Other_4"};
 
             List o2ChartList = o2Mode.getChildren("O2Track");
             int flag = 1;
-            if(o2ChartList.isEmpty()){
+            if (o2ChartList.isEmpty()) {
                 continue;
             }
             for (int j = 0; j < o2ChartList.size(); j++) {
@@ -86,9 +88,10 @@ public class ReadChart {
                 dir1.mkdir();
             }
 
-            String chartFile = dir + "\\" + nKeyCount + "k_" + difficultyName[Integer.parseInt(nDifficuty)] + ".bms";
+            String chartFile = dir + "\\" + nKeyCount + "k_" + difficultyName[Integer.parseInt(nDifficuty)].toLowerCase() + ".mc";
+            FormattedChart.setVersion(nKeyCount + "K " + difficultyName[Integer.parseInt(nDifficuty)]);
+            FormattedChart.setColumn(Integer.parseInt(nKeyCount));
             WriteChart.writeChart(chartFile);
-
             System.out.println("successful");
 
         }
